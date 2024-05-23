@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+
+</head>
+<body class="body_error404">
+    
+    <div class="contenedor_imagen_error">
+        <h2>Error 404</h2>
+        <img class="imagen_error" src="{{url_for('static', filename='img/rin_error.png')}}" alt="ErrorRin">
+        <p>Oh oh, parece que algo salio mal...</p>
+        <a href="{{url_for('index')}}">Volver al inicio</a>
+    </div>
+    
+
+    
+</body>
+</html>

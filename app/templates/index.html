@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo%}Header y barra de busqueda{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <script src="https://kit.fontawesome.com/f2f934aa4b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <header>
+        
+        
+        <a href="#" class="logo">
+            <img src="{{url_for('static', filename='img/rin.png')}}" alt="img_logo">
+            <h2>Kagamine Rin</h2>
+        </a>
+
+            <nav class="texto_header">
+                <a class="inicio" href="#">inicio</a>
+                <a class="sobre_nosotros" href="{{ url_for('about_us')}}">Sobre nosotros</a>
+                <a class="mas" href="{{ url_for('mas')}}">Más</a>
+            </nav>
+            <div class="barra_busqueda">
+                <input type="text" placeholder="Buscar...">
+                <button class="btn_busqueda"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            {% block body %} {% endblock %}
+            
+            
+        
+
+    </header>
+
+    {% block contenido %} 
+    <p>Este es el index</p>
+    
+    {% endblock%}
+
+    
+
+    
+    
+</body>
+</html>

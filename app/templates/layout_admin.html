@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Layout admin{% endblock %}</title>
+</head>
+<body>
+    <div class="header_layout">
+        
+        <a href ="#" class="logo_layout_header">
+            <img src="{{ url_for('static', filename='img/adidaslogo.png') }}" alt="imglogo">
+            <h2>Adidas</h2>
+        </a>
+        <div class="texto_header_layout">
+            <a class="texto_header_inico" href="#">Inico</a>
+            <a class="texto_header_mas" href="#">Mas</a>
+            <a class="texto_header_sobre_nosotros" href="#">Sobre nosotros</a>
+        </div> 
+
+        {% block body_layout %} {% endblock %}
+        
+        
+        
+    </div>
+    
+    
+
+    {% block contenido %}<a href="{{url_for ('dashboard')}}">Ir a desboard </a>{% endblock %}
+    
+</body>
+</html>
