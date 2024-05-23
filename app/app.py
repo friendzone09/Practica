@@ -22,6 +22,11 @@ def layout_admin():
 def dashboard():
     return render_template('dasboard.html')
 
+@app.route("/acutalizacion")
+def acutalizacion():
+    return render_template('actualizacion.html')
+
+
 def pagina_no_encontrada(error):
     return render_template('error404.html')
 
