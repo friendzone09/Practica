@@ -11,10 +11,9 @@
     
     <header>
         
-        
         <a href="#" class="logo">
             <img src="{{url_for('static', filename='img/rin.png')}}" alt="img_logo">
-            <h2>Kagamine Rin</h2>
+            <h2>Libroooos</h2>
         </a>
 
             <nav class="texto_header">
@@ -22,25 +21,49 @@
                 <a class="sobre_nosotros" href="{{ url_for('about_us')}}">Sobre nosotros</a>
                 <a class="mas" href="{{ url_for('mas')}}">Más</a>
             </nav>
-            <div class="barra_busqueda">
+            
+            <div class="barra_busqueda">    
                 <input type="text" placeholder="Buscar...">
                 <button class="btn_busqueda"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
             {% block body %} {% endblock %}
             
-            
-        
-
     </header>
 
     {% block contenido %} 
-    <p>Este es el index</p>
+
+    <div class="contenido_index">        
+        <p>Este es el index</p>
+        <h1>Consulta de datos </h1>
+        <div class="tabla_libros">
+            <table>
+                <thead>
+                    <tr> 
+                        <th>Nombre</th>
+                        <th>Autor</th>
+                        <th>Editorial</th>
+                        <th>Edicion</th>
+                    </tr>
+                </thead>
+    
+                <tbody>
+                    {% for libro in libros %}   <!-- For para imprimir la cosnulta de base de datos -->
+                    <tr>
+                        <td>{{libro[1]}}</td>
+                        <td>{{libro[2]}}</td>
+                        <td>{{libro[3]}}</td>
+                        <td>{{libro[4]}}</td>  
+                    </tr>
+    
+                </tbody>
+                {% endfor %}
+            </table>  <!-- Fin del div tabla_libros -->
+
+        </div>
+        
+    </div>
     
     {% endblock%}
 
-    
-
-    
-    
 </body>
 </html>

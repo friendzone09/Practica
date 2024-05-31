@@ -7,6 +7,9 @@ header a{
     text-decoration: none;
     color: black;
 }
+
+/* HEADER */
+
 header{
     display: flex;
     height: 80px;
@@ -15,22 +18,27 @@ header{
     align-items: center;
     justify-content: space-between;
 }
+
 .logo{
     display: flex;
     align-items: center;
     padding-left: 20px;
 }
+
 .logo:hover{
     color: #fffb00;
 }
+
 .logo img{
     height: 50px;
     padding-right: 10px;
 }
+
 .texto_header a{
     padding-left: 20px;
     font-weight: 600;
 }
+
 .texto_header :hover{
     color: #fffb00;
 }
@@ -64,6 +72,9 @@ input{
 }
 
 
+/* FIN DE HEADER*/
+
+
 /* Error 404*/
 .body_error404{
     background: linear-gradient(to right, #ff3300 0%, #ffff00 100%);
@@ -90,6 +101,10 @@ input{
     color: #f3b466;;
 }
 
+/* FIN ERROR 404*/
+
+/* RESPONISIVIDAD */
+
 @media (max-width: 700px){
     header{
         flex-direction: column;
@@ -101,6 +116,8 @@ input{
 
 
 }
+
+/* FIN RESPONSIVIDAD */
 /* Disenhio layout header*/ 
 
 .header_layout{
@@ -111,7 +128,6 @@ input{
     background-color: black
     
 }
-
 
 .header_layout img{
     padding-left: 30px;
@@ -142,6 +158,47 @@ input{
     color: rgb(78, 77, 77);;
 }
 
+/* FIN CONTENIDO LAYOUT */
+
+
+/* CONTENIDO INDEX */
+
+.contenido_index{
+    font-size: 20px;
+    padding: 20px;
+}
+
+/* TABLA INDEx */
+
+.tabla_libros{
+    width: 900px;
+    margin: 20px auto;
+    padding-bottom: 20px;
+}
+
+.tabla_libros table{
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.tabla_libros th, td{
+    padding: 10px;
+}
+
+
+
+.tabla_libros thead{
+    border-bottom: 2px solid black;
+}
+
+.tabla_libros tbody{
+    border-bottom: 2px solid black;
+
+}
+
+/* FIN TABLA DE INDE */
+
 @media (max-width:700px){
     .header_layout{
         height: 120px;
@@ -158,7 +215,6 @@ input{
     .header_layout img{
         padding-left: 10%;
     }
-
     
 }
 
