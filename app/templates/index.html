@@ -13,12 +13,11 @@
         
         <a href="#" class="logo">
             <img src="{{url_for('static', filename='img/rin.png')}}" alt="img_logo">
-            <h2>Libroooos</h2>
+            <h2>Paises</h2>
         </a>
 
             <nav class="texto_header">
-                <a class="inicio" href="#">inicio</a>
-                <a class="sobre_nosotros" href="{{ url_for('about_us')}}">Sobre nosotros</a>
+                <a class="inicio" href="{{url_for('index')}}">inicio</a>
                 <a class="mas" href="{{ url_for('mas')}}">Más</a>
             </nav>
             
@@ -32,38 +31,56 @@
 
     {% block contenido %} 
 
+
+
+
     <div class="contenido_index">        
-        <p>Este es el index</p>
-        <h1>Consulta de datos </h1>
+        <h1>Paises</h1>
+        <a href="{{url_for('administrar')}}" class="btn_registro" > Registrar un nuevo pais  <i class="fa-solid fa-plus"></i></a>
         <div class="tabla_libros">
+
             <table>
                 <thead>
                     <tr> 
                         <th>Nombre</th>
-                        <th>Autor</th>
-                        <th>Editorial</th>
-                        <th>Edicion</th>
+                        <th>Ver</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
                     </tr>
                 </thead>
     
                 <tbody>
-                    {% for libro in libros %}   <!-- For para imprimir la cosnulta de base de datos -->
+                    {% for pais in pais %}   <!-- For para imprimir la cosnulta de base de datos -->
                     <tr>
-                        <td>{{libro[1]}}</td>
-                        <td>{{libro[2]}}</td>
-                        <td>{{libro[3]}}</td>
-                        <td>{{libro[4]}}</td>  
+                        <td>{{pais[1]}}</td>  
+                        <td><a href="{{url_for('pais_ver', id_pais=pais[0])}}"><i class="fa-solid fa-eye"></i></a></td>
+                        <td><a href="{{url_for('pais_editar', id_pais=pais[0])}}"><i class="fa-solid fa-pen-to-square" class="btn_eliminar_pais"></i></a></td>
+                        <td><a href="#modal_eliminar_pais_{{pais[0]}}"><i class="fa-solid fa-trash"></i></a></td>
                     </tr>
     
                 </tbody>
                 {% endfor %}
             </table>  <!-- Fin del div tabla_libros -->
-
+            
         </div>
         
     </div>
-    
-    {% endblock%}
 
+    {% for pais in pais %} <!-- PARA ELIMINAR OCUPAS UN FOR W UN PINCHE FOR NMMS AQUI METE LA MODAL CAON PQ SI NO VALE VERGA JAJAJJAJA-->
+        <div id="modal_eliminar_pais_{{pais[0]}}" class="modal_eliminar_pais">
+            <h2>Eliminar Pais</h2>
+            <p>¿Estas seguro que deseas elimianr este pais?</p>
+            <h2>{{pais[1]}} </h2>
+
+            <div class="btns_eliminar_pais">
+                <a href="{{url_for('eliminar_pais', id_pais=pais[0])}}" class="btn_aceptar_eliminar_pais">Aceptar</a>
+                <a href="#" class="btn_cancelar_eliminar_pais">Cancelar</a>
+
+            </div>
+
+        </div>
+    {% endfor %}
+    {% endblock %}
+>
 </body>
 </html>

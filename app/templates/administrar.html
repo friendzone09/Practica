@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+{% block titulo %}Administrar{% endblock %}
+
+{% block body %}
+{% endblock %}
+
+{% block contenido %}  
+
+<form method="post" class="form_libros" action="{{url_for('pais_nuevo')}}">
+    <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+    <h2>Registra un nuevo pais</h2>
+    <input type="text" id="nombre" placeholder="Nombre de pais..." name="nombre">
+    <button type="submit">Guardar</button>
+
+</form>
+
+{% endblock%}
+    

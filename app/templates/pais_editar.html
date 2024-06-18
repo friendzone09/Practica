@@ -1,0 +1,41 @@
+{% extends "index.html" %}
+{% block titulo %}Administrar{% endblock %}
+
+{% block body %}
+{% endblock %}
+
+
+{% block contenido %}
+
+<div class="formulario_editar_datos_pais">
+
+    <form method="post" action="{{url_for('pais_editar_proceso', id=pais[0])}}">
+        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+        <h2>Nombre de el pais</h2>
+        <input type="text" name="nombre" value="{{pais[1]}}">
+
+        <h2>Estado del pais</h2>
+
+        <select name="estado">
+            <option 
+            {% if pais.2 == true %} 
+                value="true">Activo
+            {% else %}
+                value="false">Baja
+            {% endif %}
+        </option>
+
+        <option value="true">Activo</option>
+        <option value="false">Baja</option>
+           
+        </select>
+
+        <div class="botones_ediar_pais">
+            <button type="submit">Aceptar</button>
+            <a href="{{url_for('index')}}">Volver</a>
+        </div>
+    </form>
+
+</div>
+
+{% endblock %}

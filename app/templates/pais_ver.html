@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+{% block titulo %}Administrar{% endblock %}
+
+{% block body %}
+{% endblock %}
+
+
+{% block contenido %}
+
+<div class="mostrar_datos_pais">
+
+    <h2>ID:{{pais[0]}}</h2>
+    <h2>Nombre: {{pais[1]}}</h2>
+    <h2>Estado: 
+        {% if pais.2==true %}
+
+           <h2 style="color: rgb(3, 224, 3);">Activo</h2>
+            
+        {% else %} 
+            <h2 style="color: red;">Baja</h2>
+        {% endif %}
+    </h2>
+    <a href="{{url_for('index')}}">Regresar</a>
+
+</div>
+
+
+{% endblock %}

@@ -43,18 +43,18 @@ header{
     color: #fffb00;
 }
 
-.barra-busqueda{
+.barra_busqueda{
     display: flex;
 }
 
-input{
+.barra_busqueda input{
     padding: 10px;
     border: 0;
     outline: 0;
     width: 200px;
     border-radius:5px 0 0 5px;
 }
-.btn-busqueda, button{
+.barra_busqueda button{
     padding: 10px 20px;
     background-color: #ff7b00;
     color: white;
@@ -63,10 +63,10 @@ input{
     cursor: pointer;
 }
 
-.btn-busqueda, button:hover{
+.barra_busqueda button:hover{
     background-color: #f3b466;
 }
-.btn-busqueda, button:active{
+.barra_busqueda button:active{
     background-color: #7b1c04;
     
 }
@@ -164,11 +164,16 @@ input{
 /* CONTENIDO INDEX */
 
 .contenido_index{
-    font-size: 20px;
     padding: 20px;
 }
 
+.contenido_index h1{
+    padding: 0;
+    padding-left: 47%;
+}
+
 /* TABLA INDEx */
+
 
 .tabla_libros{
     width: 900px;
@@ -177,27 +182,226 @@ input{
 }
 
 .tabla_libros table{
-    width: 100%;
+    width: 500px;
     border-collapse: collapse;
     text-align: left;
+    margin-left: 23%;
 }
 
-.tabla_libros th, td{
-    padding: 10px;
+.tabla_libros th{
+    padding-bottom: 20px;
 }
 
-
-
-.tabla_libros thead{
-    border-bottom: 2px solid black;
+.tabla_libros td{
+    padding-bottom: 10px;
+    
 }
 
-.tabla_libros tbody{
-    border-bottom: 2px solid black;
+.tabla_libros thead, tbody{
+    border-bottom: 2px solid rgb(0, 0, 0);
+}
 
+.tabla_libros tbody a{
+    color: rgb(104, 104, 104);
+    text-decoration: none;
+}
+
+.tabla_libros tbody a:hover{
+    color: rgb(56, 56, 56);
+}
+
+.btn_registro{
+    background-color: orange;
+    padding: 5px;
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    margin-left: 30%;
+}
+
+.btn_registro:hover{
+    background-color: rgb(216, 98, 13);
+    color: rgb(178, 178, 178);
+    cursor: pointer;
 }
 
 /* FIN TABLA DE INDE */
+
+
+
+/* INICIO ESTILOS FORMULARIO */
+.form_libros{
+    flex-direction: column;
+    align-items: center;
+    width: 280px;
+    padding: 20px;
+    height: auto;
+    background: linear-gradient(to right, #ff3300 0%, #ffff00 100%);
+    margin-left: 37%;
+    margin-top: 20px;
+    border-radius: 15px;
+
+}
+
+.form_libros input{
+    margin-bottom: 20px;
+    border: 2px solid black;
+    height: 20px;
+    width: 200px;
+    border-radius: 10px;
+    outline-color: rgb(35, 134, 134);
+    border: none;
+}
+
+.form_libros button{
+    border-radius: 10px;
+    background-color: white;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    border: none;
+}
+
+.form_libros button:hover{
+    color: rgb(61, 61, 61);
+    background-color: rgb(169, 169, 169);
+}
+
+/*ESTILOS VER PAIS*/
+
+.mostrar_datos_pais{
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 40px;
+    margin-left: 40px;
+    background-color: rgb(212, 212, 212);
+    width: 250px;
+    border: solid 2px black;
+}
+
+.mostrar_datos_pais h2{
+    margin-bottom: 20px;
+}
+
+.mostrar_datos_pais a{
+    padding: 5px;
+    background-color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.mostrar_datos_pais a:hover{
+    background-color: rgb(55, 55, 55);
+    color: white;
+}
+
+
+
+
+/*FIN ESTILOS VER PAIS*/
+
+
+/* INICIO ESTILOS EDITAR PAIS */
+
+.formulario_editar_datos_pais{
+    padding: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+    background-color: gray;
+    width: 250px;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+.botones_ediar_pais{
+    justify-content: space-between;
+    display: flex;
+    margin-top: 30px;
+}
+
+.botones_ediar_pais button{
+    background-color: white;
+    padding: 8px;  
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.botones_ediar_pais a{
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    padding: 5px;  
+    border-radius: 5px;
+}
+
+.botones_ediar_pais button:hover{
+    background-color: rgb(200, 200, 200);
+}
+
+.botones_ediar_pais a:hover{
+    background-color: rgb(200, 200, 200);
+}
+
+/* INCIO ESTILOS MODAL ELIMINAR UNIDAD */
+
+.modal_eliminar_pais{
+    display: none;
+    position: fixed;
+    background-color: rgb(186, 186, 186);
+    width: 350px;
+    padding: 20px;
+    top: 160px;
+    left: 35%;
+    border-radius: 20px;
+    border: 1.5px black solid;
+}
+
+.modal_eliminar_pais:target{
+    display: block;
+}
+
+.btns_eliminar_pais{
+    display: flex;
+    justify-content: space-between;
+}
+
+.btns_eliminar_pais button{
+    cursor: pointer;
+    padding: 5px;
+}
+
+.btns_eliminar_pais a{
+
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    background-color: white;
+
+}
+
+.btns_eliminar_pais a:hover{
+    background-color: rgb(207, 207, 207);
+}
+
+
+
+
+.btn_cancelar_eliminar_pais:target{
+    .modal_eliminar_pais{
+        display: none;
+    }
+}
+
+
+
+/* FIN ESTILOS MODAL ELIMINAR UNIDAD */
+
+
+
+/* FIN ESTILOS EDITAR PAIS */
+
+/* FIN ESTILOS FORMULARIO*/
 
 @media (max-width:700px){
     .header_layout{
@@ -217,10 +421,3 @@ input{
     }
     
 }
-
-
-
-
-
-
-
