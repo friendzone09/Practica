@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+{% block titulo %}Administrar{% endblock %}
+
+{% block body %}
+{% endblock %}
+
+{% block contenido %}  
+
+<form method="post" class="form_registrar" action="{{url_for('editorial_registrar_proceso')}}">
+    <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+    <h2>Registra una nueva editorial</h2>
+    <input type="text" id="nombre_editorial" placeholder="Nombre de la editorial..." name="nombre_editorial">
+    <h2>Elige el pais de origen</h2>
+
+    <select name="fk_pais" id="">
+        <option selected> Seleciona un pais </option>
+        {% for pais in paises %}
+            <option value="{{pais.0}}"> {{pais.1}} </option>
+        {% endfor %}
+    </select>
+    
+    <button type="submit">Guardar </button>
+
+</form>
+
+{% endblock%}

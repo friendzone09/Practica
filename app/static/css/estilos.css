@@ -343,6 +343,8 @@ header{
     background-color: rgb(200, 200, 200);
 }
 
+/* FIN ESTILOS EDITAR PAIS */
+
 /* INCIO ESTILOS MODAL ELIMINAR UNIDAD */
 
 .modal_eliminar_pais{
@@ -398,8 +400,93 @@ header{
 /* FIN ESTILOS MODAL ELIMINAR UNIDAD */
 
 
+/* INICIO ESTILOS TABLA EDIOTRIAL */
 
-/* FIN ESTILOS EDITAR PAIS */
+.tabla_editorial{
+    width: 900px;
+    margin: 20px auto;
+    padding-bottom: 20px;
+}
+
+.tabla_editorial table{
+    width: 500px;
+    border-collapse: collapse;
+    text-align: left;
+    margin-left: 23%;
+}
+
+.tabla_editorial th{
+    padding-bottom: 20px;
+}
+
+.tabla_editorial td{
+    padding-bottom: 10px;
+    border-bottom: 2px solid black;
+    
+}
+
+.tabla_editorial thead, tbody{
+    border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+.tabla_editorial tbody a{
+    color: rgb(104, 104, 104);
+    text-decoration: none;
+}
+
+.tabla_editorial tbody a:hover{
+    color: rgb(56, 56, 56);
+}
+
+
+/* FIN ESTILOS TABLA EDIOTRIAL */
+
+/* INICIO ESILOS AUTORES */
+
+
+.tabla_autores{
+    width: 900px;
+    margin: 20px auto;
+    padding-bottom: 20px;
+}
+
+.tabla_autores table{
+    width: 500px;
+    border-collapse: collapse;
+    text-align: left;
+    margin-left: 23%;
+}
+
+.tabla_autores th{
+    padding-bottom: 20px;
+    padding-left: 30px;
+}
+
+.tabla_autores td{
+    padding-bottom: 10px;
+    padding-left: 30px;
+    border-bottom: 2px solid black;
+    
+}
+
+.tabla_autores thead, tbody{
+    border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+.tabla_autores tbody a{
+    color: rgb(104, 104, 104);
+    text-decoration: none;
+}
+
+.tabla_autores tbody a:hover{
+    color: rgb(56, 56, 56);
+}
+
+/* FIN ESILOS AUTORES */
+
+
+
+
 
 /* FIN ESTILOS FORMULARIO*/
 

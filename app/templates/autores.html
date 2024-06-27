@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+
+{% block titulo %}Autores{% endblock %}
+
+{% block body %}
+{% endblock %}
+
+{% block contenido %}  
+
+<div class="contenido_autores">
+    <h2 style="margin-left: 46%; margin-bottom: 50px;">Autores</h2>
+    <a href="{{url_for('autor_registrar')}}" class="btn_registro" > Registrar un nuevo autor  <i class="fa-solid fa-plus"></i></a>
+    <div class="tabla_autores">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre autor</th>
+                    <th>Pais de origen</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for autor in autores %}
+                    <tr>
+                        <td>{{autor[0]}} {{autor[1]}} </td>
+                        <td>{{autor[2]}} </td>
+                        <td><a href="#">Eliminar</a></td>
+                        <td><a href="#">Editar</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+</div>
+{% endblock%}

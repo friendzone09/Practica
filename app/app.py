@@ -38,6 +38,19 @@ def index():#para enlazar htmls tenemos que poner en el href de HTM: {{url_for('
 
 #---------------------------------------- FIN READ-------------------------------------------------------------------
 
+#================================================INICIO LISTAR PAISES===========================================
+
+def listar_paises():
+    conn = get_db_conection()
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM pais WHERE estado IS true ORDER BY nombre ASC')
+    pais= cur.fetchall()
+    cur.close()
+    conn.close()
+    return pais
+
+#===================================================FIN LISTAR PAISES===========================================
+
 @app.route("/administrar")
 def administrar():
     return render_template('administrar.html')
@@ -105,10 +118,101 @@ def pais_editar_proceso(id): #Aqui igual se pone la id
     
     #--------------------------------------FIN UPDATE---------------------------------------------------------------
 
+#=======================================INICIO READ EDITORIAL====================================================
+@app.route("/editoriales")
+def editorial():
+    conn = get_db_conection()
+    cur = conn.cursor()  
+    cur.execute('SELECT editorial.nombre_editorial, pais.nombre ' 
+                'FROM public.editorial INNER JOIN public.pais' 
+                ' ON editorial.fk_pais = pais.id_pais ORDER BY editorial.nombre_editorial ASC') 
+    editorial = cur.fetchall() 
+    cur.close() 
+    conn.close() 
+    return render_template('editorial.html', editorial = editorial)
 
-@app.route("/mas")
-def mas():
-    return render_template('mas.html')
+#============================================FIN READ EDITORIAL====================================================
+
+
+#=========================================INICIO REGISTRAR EDITORIAL==========================================
+@app.route('/editoriales/registrar')
+def editorial_registrar():
+    return render_template('editorial_registrar.html', paises=listar_paises())
+
+@app.route("/editoriales/registrar/proceso", methods= ('GET', 'POST'))
+def editorial_registrar_proceso():
+    if request.method == 'POST': 
+        nombre_editorial = request.form['nombre_editorial']
+        fk_pais = request.form['fk_pais'] 
+        
+        conn = get_db_conection() 
+        cur = conn.cursor() 
+        cur.execute('INSERT INTO editorial(nombre_editorial, fk_pais)' 
+                    'VALUES (%s, %s)', 
+                    (nombre_editorial, fk_pais))
+        conn.commit()
+        cur.close() 
+        conn.close()
+    
+        flash('Editorial registrada') 
+        return redirect(url_for('editorial')) 
+    return redirect(url_for('editorial')) 
+
+
+
+
+    
+#=========================================FIN REGISTRAR EDITORIAL==========================================
+
+
+
+#================================INICIO READ AUTOR============================================================
+
+@app.route('/autor')
+def autor():
+    conn = get_db_conection()
+    cur = conn.cursor()
+    cur.execute('SELECT autor.nombre_autor, autor.apellido_autor, pais.nombre'
+                ' FROM autor INNER JOIN pais ON autor.fk_pais = pais.id_pais '
+                'WHERE visualizacion_autor IS true')
+    autores=cur.fetchall()
+    conn.commit()
+    cur.close()
+    conn.close()
+    return render_template('autores.html', autores=autores)
+
+#=========================================FIN READ AUTOR======================================================
+
+#========================================INICIO REGISTRAR AUTOR===============================================
+
+@app.route('/autor/registrar')
+def autor_registrar():
+    return render_template('autor_registrar.html', paises=listar_paises())
+
+@app.route("/autor/registrar/proceso", methods= ('GET', 'POST'))
+def autor_registrar_proceso():
+    if request.method == 'POST': 
+        nombre_autor = request.form['nombre_autor']
+        apellido_autor = request.form['apellido_autor']
+        fk_pais = request.form['fk_pais'] 
+        
+        conn = get_db_conection() 
+        cur = conn.cursor() 
+        cur.execute('INSERT INTO autor(nombre_autor, apellido_autor, fk_pais)' 
+                    'VALUES (%s, %s, %s)', 
+                    (nombre_autor, apellido_autor, fk_pais,))
+        conn.commit()
+        cur.close() 
+        conn.close()
+    
+        flash('Autor registrada') 
+        return redirect(url_for('autor')) 
+    return redirect(url_for('autor')) 
+
+
+
+#===============================================FIN REGISTRAR AUTOR ==========================================
+    
 
 @app.route('/layout-admin')
 def layout_admin():
@@ -122,7 +226,7 @@ def dashboard():
 def acutalizacion():
     return render_template('actualizacion.html')
 
-#----------------------------------------VISION DE DATOS---------------------------------------------------------
+#----------------------------------------VISION DE DATOS PAIS---------------------------------------------------------
 
 @app.route("/pais/<string:id_pais>")#Al utilizar estas llaves de abrir y cerrar "<>" declaras una variable
 def pais_ver(id_pais):
@@ -135,7 +239,7 @@ def pais_ver(id_pais):
     conn.close()#Cerrar conn
     return render_template('pais_ver.html', pais=pais[0])#REGRESA EL TEMPLATE Y SE AGREGA "pais = pais" para la vista en el template
 
-#----------------------------------------FIN VISION DE DATOS---------------------------------------------------------
+#----------------------------------------FIN VISION DE DATOS PAIS---------------------------------------------------------
 
 #------------------------------------------INICIO ELIMINAR DATOS---------------------------------------------------
 

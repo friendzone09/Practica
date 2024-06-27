@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+{% block titulo %}Autores{% endblock %}
+
+{% block body %}
+{% endblock %}
+
+{% block contenido %}  
+
+<form method="post" class="form_registrar" action="{{url_for('autor_registrar_proceso')}}">
+    <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+    <h2>Nombre de el autor</h2>
+    <input type="text" id="nombre_autor" placeholder="Nombre del autor..." name="nombre_autor">
+    <h2>Apellido(s) del autor</h2>
+    <input type="text" id="apellido_autor" placeholder="Apellido(s) del autor..." name="apellido_autor">
+    <h2>Elige el pais de origen</h2>
+
+    <select name="fk_pais" id="">
+        <option selected> Seleciona un pais </option>
+        {% for pais in paises %}
+            <option value="{{pais.0}}"> {{pais.1}} </option>
+        {% endfor %}
+    </select>
+    
+    <button type="submit">Guardar </button>
+
+</form>
+
+{% endblock%}

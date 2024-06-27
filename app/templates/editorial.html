@@ -1,0 +1,40 @@
+{% extends "index.html" %}
+
+{% block titulo %}Editoriales{% endblock %}
+
+{% block body %}
+{% endblock %}
+
+{% block contenido %}  
+
+<div class="contenido_editorial">
+    <h2>Editoriales</h2>
+    <a href="{{url_for('editorial_registrar')}}" class="btn_registro" > Registrar una nueva editorial  <i class="fa-solid fa-plus"></i></a>
+    <div class="tabla_editorial">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre editorial</th>
+                    <th>Pais de la editorial</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for editorial in editorial %}
+                    <tr>
+                        <td>{{editorial[0]}} </td>
+                        <td>{{editorial[1]}} </td>
+                        <td><a href="#">Eliminar</a></td>
+                        <td><a href="#">Editar</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+</div>
+{% endblock%}
+
+    

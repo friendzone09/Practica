@@ -13,12 +13,13 @@
         
         <a href="#" class="logo">
             <img src="{{url_for('static', filename='img/rin.png')}}" alt="img_logo">
-            <h2>Paises</h2>
+            <h2>Libros</h2>
         </a>
 
             <nav class="texto_header">
-                <a class="inicio" href="{{url_for('index')}}">inicio</a>
-                <a class="mas" href="{{ url_for('mas')}}">Más</a>
+                <a class="inicio" href="{{url_for('index')}}">Paises</a>
+                <a class="mas" href="{{ url_for('editorial')}}">Editoriales</a>
+                <a href="{{url_for('autor')}}">Autores</a>
             </nav>
             
             <div class="barra_busqueda">    
